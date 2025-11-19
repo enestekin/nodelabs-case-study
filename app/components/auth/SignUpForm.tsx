@@ -11,9 +11,10 @@ import * as yup from "yup";
 const schema = yup.object({
   email: yup.string().email().required("Email is required"),
   password: yup.string().required("Password is required"),
+  name: yup.string().required("Full Name is required"),
 });
 
-export default function SignInForm() {
+export default function SignUpForm() {
   const {
     register,
     handleSubmit,
@@ -27,12 +28,25 @@ export default function SignInForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-[404px]">
-      <h2 className="text-3xl font-semibold">Sign In</h2>
+      <h2 className="text-3xl font-semibold">Create New Account</h2>
       <p className="mt-2 text-secondary">
         Welcome back! Please enter your details
       </p>
 
       <div className="py-[25px]">
+        <div className="mb-2.5">
+          <Input
+            {...register("name")}
+            label="Full Name"
+            type="name"
+            id="name"
+            placeholder="Mahfuzul Nabil"
+            inputClassName="pt-[15px] pb-4 pl-5 mt-2.5"
+            autoComplete="name"
+            error={errors.name ? (errors.name.message as string) : ""}
+          />
+        </div>
+
         <div className="mb-2.5">
           <Input
             {...register("email")}
@@ -66,7 +80,7 @@ export default function SignInForm() {
         loading={isSubmitting}
         className="bg-[#C8EE44] hover:bg-[#b3dd39]"
       >
-        Sign In
+        Create Account
       </Button>
 
       <Button
@@ -74,16 +88,16 @@ export default function SignInForm() {
         className="border border-[#F2F2F2] mt-[15px] text-secondary font-semibold hover:bg-gray-100"
       >
         <Image src="/google.png" width={24} height={24} alt="Google logo" />
-        Sign in with Google
+        Sign up with Google
       </Button>
 
       <p className="text-center text-sm mt-[25px] text-secondary">
-        Don't have an account?{" "}
+        Already have an account?{" "}
         <Link
-          href="/signup"
+          href="/signin"
           className="font-medium text-[#1b212d] relative inline-block"
         >
-          Sign up
+          Sign in
           <Image
             src="/vector.png"
             width={43}

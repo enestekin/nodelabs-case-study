@@ -1,14 +1,16 @@
 import Image from "next/image";
+import clsx from "clsx";
 
-export default function AuthLayout({
-  children,
-}: {
+interface AuthLayoutProps {
   children: React.ReactNode;
-}) {
+  className?: string;
+}
+
+export default function AuthLayout({ children, className }: AuthLayoutProps) {
   return (
     <div className="h-screen grid grid-cols-1 md:grid-cols-2">
       <div className="px-12 lg:pl-[135px]">
-        <div className="mt-10 mb-[157px]">
+        <div className={clsx("mt-10 mb-[157px]", className)}>
           <Image src="/logo.png" height={30} width={122} alt="Maglo logo" />
         </div>
         {children}
