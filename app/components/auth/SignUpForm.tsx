@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
+import { useAuthActions } from "@/hooks/useAuthActions";
+import { RegisterRequestType } from "@/types/auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -11,7 +13,7 @@ import * as yup from "yup";
 const schema = yup.object({
   email: yup.string().email().required("Email is required"),
   password: yup.string().required("Password is required"),
-  name: yup.string().required("Full Name is required"),
+  fullName: yup.string().required("Full Name is required"),
 });
 
 export default function SignUpForm() {
@@ -19,11 +21,16 @@ export default function SignUpForm() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm({ resolver: yupResolver(schema) });
+  } = useForm<RegisterRequestType>({ resolver: yupResolver(schema) });
 
-  const onSubmit = async (data: any) => {
-    // API Login request burada
-    console.log(data);
+  const { registerMutation } = useAuthActions();
+
+  const onSubmit = async (values: RegisterRequestType) => {
+    registerMutation.mutate({
+      fullName: values.fullName,
+      email: values.email,
+      password: values.password,
+    });
   };
 
   return (
@@ -36,14 +43,14 @@ export default function SignUpForm() {
       <div className="py-[25px]">
         <div className="mb-2.5">
           <Input
-            {...register("name")}
+            {...register("fullName")}
             label="Full Name"
-            type="name"
-            id="name"
+            type="text"
+            id="fullName"
             placeholder="Mahfuzul Nabil"
             inputClassName="pt-[15px] pb-4 pl-5 mt-2.5"
-            autoComplete="name"
-            error={errors.name ? (errors.name.message as string) : ""}
+            autoComplete="fullname"
+            error={errors.fullName ? (errors.fullName.message as string) : ""}
           />
         </div>
 

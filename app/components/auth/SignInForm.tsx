@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
+import { useAuthActions } from "@/hooks/useAuthActions";
+import { LoginRequestType } from "@/types/auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -20,9 +22,13 @@ export default function SignInForm() {
     formState: { errors, isSubmitting },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = async (data: any) => {
-    // API Login request burada
-    console.log(data);
+  const { loginMutation } = useAuthActions();
+
+  const onSubmit = async (values: LoginRequestType) => {
+    loginMutation.mutate({
+      email: values.email,
+      password: values.password,
+    });
   };
 
   return (
