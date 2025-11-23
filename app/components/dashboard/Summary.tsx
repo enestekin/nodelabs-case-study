@@ -1,6 +1,7 @@
 "use client";
 
 import Card from "../UI/Card";
+import { CardSkeleton } from "@/components/dashboard/skeletons/CardSkeleton";
 import {
   TotalBalanceIcon,
   TotalSpendingIcon,
@@ -10,7 +11,7 @@ import { useFinancialSummary } from "@/hooks/useFinanceActions";
 import { convertToUSD } from "@/utils/currency";
 
 export default function Summary() {
-  const { data } = useFinancialSummary();
+  const { data, isLoading } = useFinancialSummary();
   const summary = data?.data;
 
   const cards = [
@@ -34,6 +35,16 @@ export default function Summary() {
       variant: "light",
     },
   ];
+
+  if (isLoading) {
+    return (
+      <div className="flex gap-[25px]">
+        <CardSkeleton variant="dark" />
+        <CardSkeleton variant="light" />
+        <CardSkeleton variant="light" />
+      </div>
+    );
+  }
 
   return (
     <div className="flex gap-[25px]">
