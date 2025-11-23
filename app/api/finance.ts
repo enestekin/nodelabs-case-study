@@ -6,6 +6,7 @@ import {
   TransactionResponseType,
   TransferResponseType,
 } from "@/types/finance";
+import { UserResponseType } from "@/types/auth";
 
 export const fetchFinancialSummary =
   async (): Promise<FinancialSummaryResponseType> => {
@@ -43,3 +44,8 @@ export const fetchScheduledTransfers =
     );
     return res.data;
   };
+
+export const fetchUserInfo = async (): Promise<UserResponseType> => {
+  const res = await api.get<UserResponseType>("/users/profile");
+  return res.data;
+};

@@ -1,15 +1,15 @@
-export interface LoginRequestType {
+export type LoginRequestType = {
   email: string;
   password: string;
-}
+};
 
-export interface RegisterRequestType {
+export type RegisterRequestType = {
   fullName: string;
   email: string;
   password: string;
-}
+};
 
-export interface UserType {
+export type UserType = {
   id: string;
   fullName: string;
   email: string;
@@ -19,18 +19,18 @@ export interface UserType {
   lastLoginIP: string;
   createdAt: string;
   updatedAt: string;
-}
+};
 
-export interface LoginResponseType {
+export type LoginResponseType = {
   success: boolean;
   message: string;
   data: {
     user: UserType;
     accessToken: string;
   };
-}
+};
 
-export interface RegisterResponseType {
+export type RegisterResponseType = {
   success: boolean;
   message: string;
   data: {
@@ -38,12 +38,17 @@ export interface RegisterResponseType {
     fullName: string;
     email: string;
   };
-}
+};
 
-export interface ErrorResponseType {
+export type ErrorResponseType = {
   success: boolean;
   error: string;
   message: string;
   code: string;
   details?: Array<{ message: string; field?: string; code: string }>;
-}
+};
+
+export type UserResponseType = {
+  success: boolean;
+  data: UserType;
+};

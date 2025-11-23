@@ -41,7 +41,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="bg-gray-100 px-[25px] pt-[30px] pb-25 flex flex-col justify-between min-w-[250px]">
+    <aside className="bg-secondary-bg px-[25px] pt-[30px] pb-25 flex flex-col justify-between min-w-[250px]">
       <div>
         <Image
           src="/logo.svg"
