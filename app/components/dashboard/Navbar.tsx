@@ -13,7 +13,7 @@ export default function Navbar() {
   const user = data?.data;
 
   return (
-    <nav className="flex justify-between items-center">
+    <nav className="flex justify-between items-center mb-[30px]">
       <h1 className="text-[25px] font-semibold">Dashboard</h1>
 
       <div className="flex gap-[45px] items-center">
