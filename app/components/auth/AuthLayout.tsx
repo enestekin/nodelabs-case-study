@@ -11,7 +11,7 @@ export default function AuthLayout({ children, className }: AuthLayoutProps) {
     <div className="h-screen grid grid-cols-1 md:grid-cols-2">
       <div className="px-12 lg:pl-[135px]">
         <div className={clsx("mt-10 mb-[157px]", className)}>
-          <Image src="/logo.png" height={30} width={122} alt="Maglo logo" />
+          <Image src="/logo.svg" height={30} width={122} alt="Maglo logo" />
         </div>
         {children}
       </div>
