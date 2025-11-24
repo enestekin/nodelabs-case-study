@@ -4,12 +4,14 @@ import {
   fetchFinancialSummary,
   fetchWorkingCapital,
   fetchRecentTransactions,
+  fetchWallet,
 } from "@/api/finance";
 import { UserResponseType } from "@/types/auth";
 import {
   FinancialSummaryResponseType,
   WorkingCapitalResponseType,
   TransactionResponseType,
+  WalletResponseType,
 } from "@/types/finance";
 
 export const userProfileInfo = () => {
@@ -40,6 +42,14 @@ export const useRecentTransaction = () => {
   return useQuery<TransactionResponseType, Error>({
     queryKey: ["recent-transactions"],
     queryFn: fetchRecentTransactions,
+    refetchOnWindowFocus: false,
+  });
+};
+
+export const useWallet = () => {
+  return useQuery<WalletResponseType, Error>({
+    queryKey: ["wallet"],
+    queryFn: fetchWallet,
     refetchOnWindowFocus: false,
   });
 };
