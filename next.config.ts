@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "i.ibb.co",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "ui-avatars.com",
+        port: "",
+      },
     ],
   },
 };

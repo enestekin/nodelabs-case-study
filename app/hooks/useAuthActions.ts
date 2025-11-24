@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useMutation } from "@tanstack/react-query";
-import { loginApi, registerApi } from "@/api/auth";
+import { loginApi, registerApi, logoutApi } from "@/api/auth";
 import { useAuthStore } from "@/store/authStore";
 import {
   LoginRequestType,
@@ -13,6 +13,7 @@ import {
 
 export const useAuthActions = () => {
   const setAuth = useAuthStore((s) => s.setAuth);
+  const logout = useAuthStore((s) => s.logout);
   const router = useRouter();
 
   const loginMutation = useMutation<
@@ -48,5 +49,14 @@ export const useAuthActions = () => {
     },
   });
 
-  return { loginMutation, registerMutation };
+  const logoutMutation = useMutation({
+    mutationFn: logoutApi,
+    onSuccess: () => {
+      Cookies.remove("token");
+      logout();
+      router.push("/signin");
+    },
+  });
+
+  return { loginMutation, registerMutation, logoutMutation };
 };

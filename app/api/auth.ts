@@ -19,3 +19,8 @@ export const registerApi = async (
   const res = await api.post<RegisterResponseType>("/users/register", data);
   return res.data;
 };
+
+export const logoutApi = async () => {
+  const res = await api.post("/users/logout");
+  return res.data;
+};

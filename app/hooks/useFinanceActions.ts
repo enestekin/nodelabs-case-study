@@ -5,6 +5,7 @@ import {
   fetchWorkingCapital,
   fetchRecentTransactions,
   fetchWallet,
+  fetchScheduledTransfers,
 } from "@/api/finance";
 import { UserResponseType } from "@/types/auth";
 import {
@@ -12,6 +13,7 @@ import {
   WorkingCapitalResponseType,
   TransactionResponseType,
   WalletResponseType,
+  TransferResponseType,
 } from "@/types/finance";
 
 export const userProfileInfo = () => {
@@ -50,6 +52,14 @@ export const useWallet = () => {
   return useQuery<WalletResponseType, Error>({
     queryKey: ["wallet"],
     queryFn: fetchWallet,
+    refetchOnWindowFocus: false,
+  });
+};
+
+export const useScheduledTransfers = () => {
+  return useQuery<TransferResponseType, Error>({
+    queryKey: ["scheduled-transfers"],
+    queryFn: fetchScheduledTransfers,
     refetchOnWindowFocus: false,
   });
 };

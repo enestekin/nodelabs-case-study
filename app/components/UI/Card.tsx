@@ -18,7 +18,7 @@ export default function Card({
   return (
     <div
       className={clsx(
-        "flex items-center py-6 px-5 rounded-[10px] min-w-[222px]",
+        "flex items-center py-6 px-5 rounded-[10px] w-full",
         variant === "dark"
           ? "bg-[#363A3F] text-white"
           : "bg-[#f8f8f8] text-secondary"

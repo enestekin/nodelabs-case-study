@@ -12,6 +12,7 @@ import {
   TransactionsIcon,
   LogoutIcon,
 } from "@/assets/Icons";
+import { useAuthActions } from "@/hooks/useAuthActions";
 
 const menu = [
   { label: "Dashboard", href: "/dashboard", icon: DashboardIcon },
@@ -39,6 +40,7 @@ const menu = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const { logoutMutation } = useAuthActions();
 
   return (
     <aside className="bg-secondary-bg px-[25px] pt-[30px] pb-25 flex flex-col justify-between min-w-[250px]">
@@ -82,13 +84,14 @@ export default function Sidebar() {
           <HelpIcon />
           Help
         </Link>
-        <Link
-          href="/logout"
-          className="flex items-center gap-3 pl-[15px] py-[17px] rounded-lg text-sm font-semibold min-w-[200px] hover:bg-gray-100"
+        <button
+          type="button"
+          className="flex items-center gap-3 pl-[15px] py-[17px] rounded-lg text-sm font-semibold min-w-[200px] hover:bg-gray-100 cursor-pointer"
+          onClick={() => logoutMutation.mutate()}
         >
           <LogoutIcon />
           Logout
-        </Link>
+        </button>
       </div>
     </aside>
   );

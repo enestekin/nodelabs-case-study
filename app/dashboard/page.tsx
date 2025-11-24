@@ -3,6 +3,7 @@ import Summary from "@/components/dashboard/Summary";
 import WorkingCapitalChart from "@/components/dashboard/WorkingCapitalChart";
 import RecentTransaction from "@/components/dashboard/RecentTransaction";
 import Wallet from "@/components/dashboard/Wallet";
+import ScheduledTransfers from "@/components/dashboard/ScheduledTransfers";
 
 export default function DashboardPage() {
   return (
@@ -14,7 +15,10 @@ export default function DashboardPage() {
           <WorkingCapitalChart />
           <RecentTransaction />
         </div>
-        <Wallet />
+        <div className="flex flex-col gap-[30px]">
+          <Wallet />
+          <ScheduledTransfers />
+        </div>
       </div>
     </main>
   );
