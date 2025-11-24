@@ -30,7 +30,7 @@ export type FinancialSummaryResponseType = {
   };
 };
 
-export type WorkingCapitalItemResponseType = {
+export type WorkingCapitalResponseType = {
   success: boolean;
   message: string;
   data: {
@@ -41,7 +41,7 @@ export type WorkingCapitalItemResponseType = {
         month: string;
         income: number;
         expense: number;
-        netBalance: number;
+        net: number;
       }
     ];
     summary: {

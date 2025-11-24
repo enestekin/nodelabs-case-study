@@ -1,7 +1,7 @@
 import api from "./axiosInstance";
 import {
   FinancialSummaryResponseType,
-  WorkingCapitalItemResponseType,
+  WorkingCapitalResponseType,
   WalletResponseType,
   TransactionResponseType,
   TransferResponseType,
@@ -16,9 +16,9 @@ export const fetchFinancialSummary =
     return res.data;
   };
 
-export const fetchWorkingCapitalItems =
-  async (): Promise<WorkingCapitalItemResponseType> => {
-    const res = await api.get<WorkingCapitalItemResponseType>(
+export const fetchWorkingCapital =
+  async (): Promise<WorkingCapitalResponseType> => {
+    const res = await api.get<WorkingCapitalResponseType>(
       "/financial/working-capital"
     );
     return res.data;
