@@ -295,3 +295,21 @@ export function TotalSavedIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+export function RightIcon({ className }: IconProps) {
+  return (
+    <svg
+      width="6"
+      height="9"
+      viewBox="0 0 6 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M-3.47178e-07 1.0575L3.435 4.5L-4.62248e-08 7.9425L1.0575 9L5.5575 4.5L1.0575 -4.62248e-08L-3.47178e-07 1.0575Z"
+        fill="#29A073"
+      />
+    </svg>
+  );
+}

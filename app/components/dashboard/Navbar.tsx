@@ -21,7 +21,7 @@ export default function Navbar() {
         <NotificationsIcon className="text-secondary" />
         <button
           type="button"
-          className="flex justify-between items-center bg-secondary-bg py-[6px] pl-[7px] pr-[21px] cursor-pointer rounded-full min-w-[215px]"
+          className="flex justify-between items-center bg-secondary-bg  pl-[7px] pr-[21px] cursor-pointer rounded-full min-w-[215px]"
         >
           {isLoading ? (
             <div className="flex items-center w-full animate-pulse">

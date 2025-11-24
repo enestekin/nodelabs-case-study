@@ -74,17 +74,17 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      <div className="flex flex-col gap-3 text-sm text-third">
+      <div className="flex flex-col text-sm text-third">
         <Link
           href="#"
-          className="flex items-center gap-3 pl-[15px] py-[15px] rounded-lg text-sm font-semibold min-w-[200px] hover:bg-gray-100"
+          className="flex items-center gap-3 pl-[15px] py-[17px] rounded-lg text-sm font-semibold min-w-[200px] hover:bg-gray-100"
         >
           <HelpIcon />
           Help
         </Link>
         <Link
           href="/logout"
-          className="flex items-center gap-3 pl-[15px] py-[15px] rounded-lg text-sm font-semibold min-w-[200px] hover:bg-gray-100"
+          className="flex items-center gap-3 pl-[15px] py-[17px] rounded-lg text-sm font-semibold min-w-[200px] hover:bg-gray-100"
         >
           <LogoutIcon />
           Logout
