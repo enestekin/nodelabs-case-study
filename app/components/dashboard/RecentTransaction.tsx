@@ -9,7 +9,6 @@ export default function RecentTransaction() {
   const { data, isLoading } = useRecentTransaction();
   const transactions = data?.data?.transactions?.slice(0, 3) || [];
 
-  console.log(data, isLoading);
   return (
     <div className="border border-[#F5F5F5] rounded-[10px] w-full pt-[15px] pl-[25px] pr-[19px] pb-5">
       <div className="flex justify-between items-center mb-5">
