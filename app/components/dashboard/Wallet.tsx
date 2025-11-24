@@ -22,11 +22,15 @@ interface WalletCard {
 }
 
 import { useWallet } from "@/hooks/useFinanceActions";
+import WalletSkeleton from "./skeletons/WalletSkeleton";
 
 export default function Wallet() {
-  const { data } = useWallet();
+  const { data, isLoading } = useWallet();
   const cards: WalletCard[] = data?.data.cards || [];
-  console.log(data);
+
+  if (isLoading) {
+    return <WalletSkeleton />;
+  }
 
   return (
     <div>
